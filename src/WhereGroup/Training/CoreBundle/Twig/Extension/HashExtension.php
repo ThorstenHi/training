@@ -1,6 +1,6 @@
 <?php
 
-namespace WhereGroup\Training\Corebundle\Twig\Extension;
+namespace WhereGroup\Training\CoreBundle\Twig\Extension;
 
 class HashExtension extends \Twig_Extension
 {
