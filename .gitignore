@@ -1,8 +1,5 @@
 app/cache
 app/logs
-bin
 vendor
-web
-*.md
 *.lock
-*.json
+web/bundles
