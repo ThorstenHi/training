@@ -9,7 +9,7 @@
         <service id="wheregroup.training.project.listener" class="%wheregroup.training.project.listener.class%">
             <tag name="kernel.event_listener" event="project.save" method="onSave" />
             <tag name="kernel.event_listener" event="project.delete" method="onDelete" />
-            <argument type="service" id="service_container" />
+            <argument type="service" id="wheregroup.training.history" />
         </service>
     </services>
 </container>

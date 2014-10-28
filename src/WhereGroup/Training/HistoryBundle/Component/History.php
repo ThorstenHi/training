@@ -10,7 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
  * @package WhereGroup\TrainingBundle\Component
  * @author  A.R.Pour
  */
-class History
+class History implements HistoryInterface
 {
     private $em;
     private $repo;

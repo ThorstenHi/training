@@ -2,8 +2,8 @@
 
 namespace WhereGroup\Training\HistoryBundle\EventListener;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use WhereGroup\Training\CoreBundle\Event\ProjectEvent;
+use WhereGroup\Training\HistoryBundle\Component\HistoryInterface;
 
 /**
  * Class ProjectListener
@@ -13,14 +13,14 @@ use WhereGroup\Training\CoreBundle\Event\ProjectEvent;
  */
 class ProjectListener
 {
-    protected $container;
+    protected $history;
 
     /**
-     * @param ContainerInterface $container
+     * @param HistoryInterface $history
      */
-    public function __construct(ContainerInterface $container)
+    public function __construct(HistoryInterface $history)
     {
-        $this->container = $container;
+        $this->history = $history;
     }
 
     /**
@@ -28,9 +28,7 @@ class ProjectListener
      */
     public function onSave(ProjectEvent $event)
     {
-        $this->container->get('wheregroup.training.history')
-            ->save($event->getEntity());
-
+        $this->history->save($event->getEntity());
     }
 
     /**
@@ -38,7 +36,6 @@ class ProjectListener
      */
     public function onDelete(ProjectEvent $event)
     {
-        $this->container->get('wheregroup.training.history')
-            ->delete($event->getEntity());
+        $this->history->delete($event->getEntity());
     }
 }
