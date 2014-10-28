@@ -33,7 +33,7 @@ class Project
      */
     public function getAll()
     {
-        return $this->repo->findAll(array('id' => 'asc'));
+        return $this->repo->findAll();
     }
 
     /**

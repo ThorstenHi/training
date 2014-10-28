@@ -30,6 +30,7 @@ class TrainingCoreExtension extends Extension
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
         $loader->load('formTypeServices.xml');
+        $loader->load('twigExtensionService.xml');
     }
 
     /**

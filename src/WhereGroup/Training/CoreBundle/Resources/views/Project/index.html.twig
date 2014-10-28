@@ -18,7 +18,7 @@
             <tr>
                 <td>{{ project.id }}</td>
                 <td>{{ project.name }}</td>
-                <td>{{ project.leader }}</td>
+                <td>{{ project.leader|hash }}</td>
                 <td>
                     <a href="{{  path('project_edit', {id: project.id}) }}">
                        edit
