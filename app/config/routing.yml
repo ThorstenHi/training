@@ -2,3 +2,8 @@ _training_core_bundle:
     resource: "@TrainingCoreBundle/Controller"
     type:     annotation
     prefix:   /
+
+_training_history_bundle:
+    resource: "@TrainingHistoryBundle/Controller"
+    type:     annotation
+    prefix:   /

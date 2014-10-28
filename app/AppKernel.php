@@ -28,6 +28,7 @@ class AppKernel extends Kernel
          * My Bundles
          *********************************************************************/
         $bundles[] = new \WhereGroup\Training\CoreBundle\TrainingCoreBundle();
+        $bundles[] = new \WhereGroup\Training\HistoryBundle\TrainingHistoryBundle();
 
         return $bundles;
     }

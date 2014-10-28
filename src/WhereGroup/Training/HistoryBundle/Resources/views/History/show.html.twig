@@ -1,0 +1,25 @@
+{% extends 'TrainingCoreBundle::template.html.twig' %}
+
+{% block title %}{{ 'Projekt History'|trans }}{% endblock %}
+
+{% block content %}
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Projektleiter</th>
+            <th>Beschreibung</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for project in rows %}
+            <tr>
+                <td>{{ project.name }}</td>
+                <td>{{ project.leader }}</td>
+                <td>{{ project.description }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('project_index') }}" class="btn btn-primary">{{ 'zurück'|trans }}</a>
+{% endblock %}

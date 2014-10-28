@@ -30,6 +30,10 @@ class TrainingHistoryExtension extends Extension
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('parameters.yml');
+
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('service.xml');
+        $loader->load('eventListenerService.xml');
     }
 
     /**
