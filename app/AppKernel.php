@@ -24,6 +24,11 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
         }
 
+        /**********************************************************************
+         * My Bundles
+         *********************************************************************/
+        $bundles[] = new \WhereGroup\Training\CoreBundle\TrainingCoreBundle();
+
         return $bundles;
     }
 
