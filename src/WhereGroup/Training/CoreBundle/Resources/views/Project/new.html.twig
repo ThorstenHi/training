@@ -1,6 +1,12 @@
 {% extends 'TrainingCoreBundle::template.html.twig' %}
 
-{% block title %}{{ 'Projekt neu'|trans }}{% endblock %}
+{% block title %}
+{% if form.vars.value.id is not null %}
+    {{ 'Projekt bearbeiten'|trans }}
+{% else %}
+    {{ 'Projekt anlegen'|trans }}
+{% endif %}
+{% endblock %}
 
 {% block content %}
     {% if not form.vars.valid %}
