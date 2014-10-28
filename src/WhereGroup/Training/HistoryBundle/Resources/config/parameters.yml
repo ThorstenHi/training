@@ -1,1 +1,2 @@
 parameters:
+    wheregroup.training.hash.extension.class: WhereGroup\Training\HistoryBundle\Twig\Extension\HashExtension
