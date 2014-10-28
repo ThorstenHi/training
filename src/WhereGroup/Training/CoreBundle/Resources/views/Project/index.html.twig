@@ -3,5 +3,34 @@
 {% block title %}{{ 'Projekt Übersicht'|trans }}{% endblock %}
 
 {% block content %}
-Index
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Projektleiter</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for project in projects %}
+            <tr>
+                <td>{{ project.id }}</td>
+                <td>{{ project.name }}</td>
+                <td>{{ project.leader }}</td>
+                <td>
+                    <a href="{{  path('project_edit', {id: project.id}) }}">
+                       edit
+                    </a>
+                </td>
+                <td>
+                    <a href="{{  path('project_confirm_delete', {id: project.id}) }}">
+                        delete
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

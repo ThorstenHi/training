@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="wheregroup.training.form.type.project.class">WhereGroup\Training\CoreBundle\Form\Type\ProjectType</parameter>
+    </parameters>
+
+    <services>
+        <service id="wheregroup.training.form.type.project" class="%wheregroup.training.form.type.project.class%">
+            <tag name="form.type" alias="project" />
+        </service>
+    </services>
+</container>
