@@ -3,6 +3,16 @@
 {% block body %}
     <div class="container">
         <div class="header">
+            <div class="btn-group pull-right">
+                <a class="btn btn-primary" href="{{ path('project_index') }}">{{  'Projekt'|trans }}</a>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu " role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ path('project_new') }}">Neu</a></li>
+                </ul>
+            </div>
             <h3 class="text-muted">{% block title %}{% endblock %}</h3>
         </div>
         <hr/>
