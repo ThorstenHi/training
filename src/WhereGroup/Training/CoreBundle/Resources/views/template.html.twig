@@ -1,0 +1,15 @@
+{% extends 'TrainingCoreBundle::base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="header">
+            <h3 class="text-muted">{% block title %}{% endblock %}</h3>
+        </div>
+        <hr/>
+        {% block content %}{% endblock %}
+        <hr/>
+        <div class="footer">
+            <p>&copy; WhereGroup 2014</p>
+        </div>
+    </div>
+{% endblock %}
