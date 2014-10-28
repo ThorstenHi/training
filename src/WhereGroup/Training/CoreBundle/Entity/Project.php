@@ -42,55 +42,7 @@ class Project
     private $leader;
 
     /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Project
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Project
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
+     * @return mixed
      */
     public function getDescription()
     {
@@ -98,25 +50,66 @@ class Project
     }
 
     /**
-     * Set leader
-     *
-     * @param string $leader
-     * @return Project
+     * @param mixed $description
+     * @return $this
      */
-    public function setLeader($leader)
+    public function setDescription($description)
     {
-        $this->leader = $leader;
-
+        $this->description = $description;
         return $this;
     }
 
     /**
-     * Get leader
-     *
-     * @return string 
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return mixed
      */
     public function getLeader()
     {
         return $this->leader;
+    }
+
+    /**
+     * @param mixed $leader
+     * @return $this
+     */
+    public function setLeader($leader)
+    {
+        $this->leader = $leader;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
     }
 }

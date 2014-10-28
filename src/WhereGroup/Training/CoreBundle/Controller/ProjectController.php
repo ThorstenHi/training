@@ -36,7 +36,9 @@ class ProjectController extends Controller
      */
     public function newAction()
     {
-        return array();
+        return array(
+            'form' => $this->createForm('project', new Project())->createView()
+        );
     }
 
     /**
@@ -46,7 +48,17 @@ class ProjectController extends Controller
      */
     public function createAction()
     {
-        return array();
+        $form = $this
+            ->createForm('project', new Project())
+            ->submit($this->get('request'));
+
+        if ($form->isValid()) {
+            $this->get('wheregroup.training.project')->save($form->getData());
+
+            return $this->redirect($this->generateUrl('project_index'));
+        }
+
+        return array('form' => $form->createView());
     }
 
     /**
@@ -56,7 +68,12 @@ class ProjectController extends Controller
      */
     public function editAction($id)
     {
-        return array();
+        return array(
+            'form' => $this->createForm(
+                'project',
+                $this->get('wheregroup.training.project')->getById($id)
+            )->createView()
+        );
     }
 
     /**
@@ -66,7 +83,19 @@ class ProjectController extends Controller
      */
     public function updateAction($id)
     {
-        return array();
+        $entity = $this->get('wheregroup.training.project')->getById($id);
+
+        $form = $this
+            ->createForm('project', $entity)
+            ->submit($this->get('request'));
+
+        if ($form->isValid()) {
+            $this->get('wheregroup.training.project')->save($entity);
+
+            return $this->redirect($this->generateUrl('project_index'));
+        }
+
+        return array('form' => $form->createView());
     }
 
     /**
@@ -76,7 +105,15 @@ class ProjectController extends Controller
      */
     public function confirmAction($id)
     {
-        return array();
+        $entity = $this->get('wheregroup.training.project')->getById($id);
+
+        $form = $this->createFormBuilder($entity)
+            ->add('delete', 'submit', array('label' => 'löschen'))
+            ->getForm();
+
+        return array(
+            'form' => $form->createView()
+        );
     }
 
     /**
@@ -85,6 +122,17 @@ class ProjectController extends Controller
      */
     public function deleteAction($id)
     {
-        return array();
+        $entity = $this->get('wheregroup.training.project')->getById($id);
+
+        $form = $this->createFormBuilder($entity)
+            ->add('delete', 'submit', array('label' => 'löschen'))
+            ->getForm()
+            ->submit($this->get('request'));
+
+        if ($form->isValid()) {
+            $this->get('wheregroup.training.project')->delete($entity);
+        }
+
+        return $this->redirect($this->generateUrl('project_index'));
   }
 }

@@ -3,5 +3,44 @@
 {% block title %}{{ 'Projekt neu'|trans }}{% endblock %}
 
 {% block content %}
-...
+    {% if not form.vars.valid %}
+    <div class="alert alert-danger" role="alert">
+    {{ form_errors(form.name) }}
+    {{ form_errors(form.description) }}
+    {{ form_errors(form.leader) }}
+    </div>
+    {% endif %}
+
+{% if form.vars.value.id is not null %}
+    <form class="form-horizontal" role="form"  method="post"  action="{{ path('project_update', {id: form.vars.value.id}) }}" autocomplete="off" novalidate>
+{% else %}
+    <form class="form-horizontal" role="form"  method="post"  action="{{ path('project_create') }}" autocomplete="off" novalidate>
+
+{% endif %}
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label{% if form.name.vars.errors  is not empty %} text-danger{% endif %}" for="{{ form.name.vars.id }}">
+            {{ form.name.vars.label }}{% if form.name.vars.required %}<span class="text-danger"> *</span>{% endif %}
+        </label>
+        <div class="col-sm-9">{{ form_widget(form.name) }}</div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label{% if form.description.vars.errors  is not empty %} text-danger{% endif %}" for="{{ form.description.vars.id }}">
+            {{ form.description.vars.label }}{% if form.description.vars.required %}<span class="text-danger"> *</span>{% endif %}
+        </label>
+        <div class="col-sm-9">{{ form_widget(form.description) }}</div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label{% if form.leader.vars.errors  is not empty %} text-danger{% endif %}" for="{{ form.leader.vars.id }}">
+            {{ form.leader.vars.label }}{% if form.leader.vars.required %}<span class="text-danger"> *</span>{% endif %}
+        </label>
+        <div class="col-sm-9">{{ form_widget(form.leader) }}</div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9"><button class="btn btn-primary" type="submit">{{ 'speichern'|trans }}</button></div>
+    </div>
+    {{ form_rest(form) }}
+</form>
 {% endblock %}
