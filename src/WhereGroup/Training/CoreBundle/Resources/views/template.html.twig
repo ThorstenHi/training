@@ -2,6 +2,9 @@
 
 {% block body %}
     <div class="container">
+        {% for flashMessage in app.session.flashbag.get('success') %}
+            <div class="alert alert-success" role="alert">{{ flashMessage }}</div>
+        {% endfor %}
         <div class="header">
             <div class="btn-group pull-right">
                 <a class="btn btn-primary" href="{{ path('project_index') }}">{{  'Projekt'|trans }}</a>
