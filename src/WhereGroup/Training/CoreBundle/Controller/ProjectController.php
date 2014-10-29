@@ -53,6 +53,12 @@ class ProjectController extends Controller
             ->submit($this->get('request'));
 
         if ($form->isValid()) {
+
+            $this->get('session')->getFlashBag()->add(
+                'success',
+                'Your changes were saved!'
+            );
+
             $this->get('wheregroup.training.project')->save($form->getData());
 
             return $this->redirect($this->generateUrl('project_index'));
