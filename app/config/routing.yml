@@ -1,9 +1,6 @@
 _training_core_bundle:
-    resource: "@TrainingCoreBundle/Controller"
+    resource: "@TrainingCoreBundle/Controller/ProjectController.php"
     type:     annotation
-    prefix:   /
-
 _training_history_bundle:
-    resource: "@TrainingHistoryBundle/Controller"
+    resource: "@TrainingHistoryBundle/Controller/HistoryController.php"
     type:     annotation
-    prefix:   /
