@@ -1,0 +1,18 @@
+PHPUnit 4.1.6 by Sebastian Bergmann.
+
+Configuration read from /home/arp/aRp/www/data/training/app/phpunit.xml
+
+.[31;1mE[0m
+
+Time: 195 ms, Memory: 23.75Mb
+
+There was 1 error:
+
+1) WhereGroup\Training\CoreBundle\Test\Controller\ProjectControllerTest::testDelete
+InvalidArgumentException: The current node list is empty.
+
+/home/arp/aRp/www/data/training/vendor/symfony/symfony/src/Symfony/Component/DomCrawler/Crawler.php:725
+/home/arp/aRp/www/data/training/src/WhereGroup/Training/CoreBundle/Tests/Controller/ProjectControllerTest.php:47
+[37;41m                                   [0m
+[37;41mFAILURES!                          [0m
+[37;41mTests: 2, Assertions: 0, Errors: 1.[0m
