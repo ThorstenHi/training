@@ -10,6 +10,7 @@
     <services>
         <service id="wheregroup.training.history" class="%wheregroup.training.history.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="security.context" />
         </service>
     </services>
 </container>
