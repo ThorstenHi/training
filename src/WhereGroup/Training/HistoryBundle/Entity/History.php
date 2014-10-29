@@ -48,10 +48,15 @@ class History
      */
     private $datetimez;
 
+     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $username;
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -74,7 +79,7 @@ class History
     /**
      * Get projectId
      *
-     * @return integer 
+     * @return integer
      */
     public function getProjectId()
     {
@@ -97,7 +102,7 @@ class History
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -120,7 +125,7 @@ class History
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -143,7 +148,7 @@ class History
     /**
      * Get leader
      *
-     * @return string 
+     * @return string
      */
     public function getLeader()
     {
@@ -166,10 +171,33 @@ class History
     /**
      * Get datetimez
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatetimez()
     {
         return $this->datetimez;
+    }
+
+     /**
+     * Set username
+     *
+     * @param string $username
+     * @return History
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
     }
 }

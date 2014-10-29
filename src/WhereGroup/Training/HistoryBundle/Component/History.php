@@ -50,7 +50,6 @@ class History implements HistoryInterface
     public function save($entity)
     {
         $user = $this->sc->getToken()->getUser();
-        // echo $user->getUsername();
 
         $history = $this->newEntity();
         $history
@@ -58,7 +57,8 @@ class History implements HistoryInterface
             ->setName($entity->getName())
             ->setDescription($entity->getDescription())
             ->setLeader($entity->getLeader())
-            ->setDatetimez(new \DateTime());
+            ->setDatetimez(new \DateTime())
+            ->setUsername($user->getUsername());
 
         $this->em->persist($history);
         $this->em->flush();
