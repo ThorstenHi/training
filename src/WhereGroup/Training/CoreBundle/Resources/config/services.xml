@@ -5,10 +5,15 @@
 
     <parameters>
         <parameter key="wheregroup.training.project.class">WhereGroup\Training\CoreBundle\Component\Project</parameter>
+        <parameter key="wheregroup.training.ressource.class">WhereGroup\Training\CoreBundle\Component\Ressource</parameter>
     </parameters>
 
     <services>
         <service id="wheregroup.training.project" class="%wheregroup.training.project.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="event_dispatcher" />
+        </service>
+        <service id="wheregroup.training.ressource" class="%wheregroup.training.ressource.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="event_dispatcher" />
         </service>

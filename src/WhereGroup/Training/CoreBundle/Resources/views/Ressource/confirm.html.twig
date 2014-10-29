@@ -1,0 +1,13 @@
+{% extends 'TrainingCoreBundle::template.html.twig' %}
+
+{% block title %}{{ 'Ressourcen Übersicht'|trans }}{% endblock %}
+
+{% block content %}
+    <form action="{{ path('ressource_delete', {id: form.vars.value.id}) }}" method="post">
+    {% if form.delete is defined %}
+        Sind Sie sicher das Sie <strong>{{ form.vars.value.name }}</strong> löschen möchten?
+    {% endif %}
+
+    {{ form(form) }}
+    </form>
+{% endblock %}

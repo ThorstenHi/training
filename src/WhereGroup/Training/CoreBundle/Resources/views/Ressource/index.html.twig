@@ -1,0 +1,36 @@
+{% extends 'TrainingCoreBundle::template.html.twig' %}
+
+{% block title %}{{ 'Ressourcen Übersicht'|trans }}{% endblock %}
+
+{% block content %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Beschreibung</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ressource in ressourcen %}
+            <tr>
+                <td>{{ ressource.id }}</td>
+                <td>{{ ressource.name }}</td>
+                <td>{{ ressource.description }}</td>
+                <td>
+                    <a href="{{  path('ressource_edit', {id: ressource.id}) }}">
+                       edit
+                    </a>
+                </td>
+                <td>
+                    <a href="{{  path('ressource_confirm_delete', {id: ressource.id}) }}">
+                        delete
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

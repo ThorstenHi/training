@@ -6,11 +6,15 @@
 
     <parameters>
         <parameter key="wheregroup.training.form.type.project.class">WhereGroup\Training\CoreBundle\Form\Type\ProjectType</parameter>
+        <parameter key="wheregroup.training.form.type.ressource.class">WhereGroup\Training\CoreBundle\Form\Type\RessourceType</parameter>
     </parameters>
 
     <services>
         <service id="wheregroup.training.form.type.project" class="%wheregroup.training.form.type.project.class%">
             <tag name="form.type" alias="project" />
+        </service>
+        <service id="wheregroup.training.form.type.ressource" class="%wheregroup.training.form.type.ressource.class%">
+            <tag name="form.type" alias="ressource" />
         </service>
     </services>
 </container>
