@@ -1,6 +1,9 @@
 _training_core_bundle:
     resource: "@TrainingCoreBundle/Controller/ProjectController.php"
     type:     annotation
+_training_core_bundle_security:
+    resource: "@TrainingCoreBundle/Controller/SecurityController.php"
+    type:     annotation
 _training_history_bundle:
     resource: "@TrainingHistoryBundle/Controller/HistoryController.php"
     type:     annotation
