@@ -51,7 +51,8 @@ class History implements HistoryInterface
             ->setProjectId($entity->getId())
             ->setName($entity->getName())
             ->setDescription($entity->getDescription())
-            ->setLeader($entity->getLeader());
+            ->setLeader($entity->getLeader())
+            ->setDatetimez(new \DateTime());
 
         $this->em->persist($history);
         $this->em->flush();

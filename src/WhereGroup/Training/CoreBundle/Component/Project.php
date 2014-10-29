@@ -33,7 +33,7 @@ class Project
      */
     public function getAll()
     {
-        return $this->repo->findAll();
+        return $this->repo->findAllOrderedById();
     }
 
     /**
