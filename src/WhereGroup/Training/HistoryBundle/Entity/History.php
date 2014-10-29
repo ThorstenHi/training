@@ -44,24 +44,14 @@ class History
     private $leader;
 
     /**
-     * @return mixed
+     * @ORM\Column(type="datetimetz")
      */
-    public function getDescription()
-    {
-        return $this->description;
-    }
+    private $datetimez;
 
     /**
-     * @param mixed $description
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-        return $this;
-    }
-
-    /**
-     * @return mixed
+     * Get id
+     *
+     * @return integer 
      */
     public function getId()
     {
@@ -69,50 +59,22 @@ class History
     }
 
     /**
-     * @param mixed $id
+     * Set projectId
+     *
+     * @param integer $projectId
+     * @return History
      */
-    public function setId($id)
+    public function setProjectId($projectId)
     {
-        $this->id = $id;
+        $this->projectId = $projectId;
+
         return $this;
     }
 
     /**
-     * @return mixed
-     */
-    public function getLeader()
-    {
-        return $this->leader;
-    }
-
-    /**
-     * @param mixed $leader
-     */
-    public function setLeader($leader)
-    {
-        $this->leader = $leader;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    /**
-     * @return mixed
+     * Get projectId
+     *
+     * @return integer 
      */
     public function getProjectId()
     {
@@ -120,11 +82,94 @@ class History
     }
 
     /**
-     * @param mixed $projectId
+     * Set name
+     *
+     * @param string $name
+     * @return History
      */
-    public function setProjectId($projectId)
+    public function setName($name)
     {
-        $this->projectId = $projectId;
+        $this->name = $name;
+
         return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return History
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set leader
+     *
+     * @param string $leader
+     * @return History
+     */
+    public function setLeader($leader)
+    {
+        $this->leader = $leader;
+
+        return $this;
+    }
+
+    /**
+     * Get leader
+     *
+     * @return string 
+     */
+    public function getLeader()
+    {
+        return $this->leader;
+    }
+
+    /**
+     * Set datetimez
+     *
+     * @param \DateTime $datetimez
+     * @return History
+     */
+    public function setDatetimez($datetimez)
+    {
+        $this->datetimez = $datetimez;
+
+        return $this;
+    }
+
+    /**
+     * Get datetimez
+     *
+     * @return \DateTime 
+     */
+    public function getDatetimez()
+    {
+        return $this->datetimez;
     }
 }
