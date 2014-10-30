@@ -6,10 +6,11 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Projektleiter</th>
-            <th>Beschreibung</th>
-            <th>Zeitstempel</th>
+            <th>{{ 'Name'|trans }}</th>
+            <th>{{ 'Projektleiter'|trans }}</th>
+            <th>{{ 'Beschreibung'|trans }}</th>
+            <th>{{ 'Zeitstempel'|trans }}</th>
+            <th>{{ 'Benutzername'|trans }}</th>
         </tr>
         </thead>
         <tbody>
@@ -19,6 +20,7 @@
                 <td>{{ project.leader }}</td>
                 <td>{{ project.description }}</td>
                 <td>{{ project.datetimez|date('Y-m-d H:i:s') }}</td>
+                <td>{{ project.username }}</td>
             </tr>
         {% endfor %}
         </tbody>

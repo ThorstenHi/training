@@ -16,6 +16,11 @@
                 <ul class="dropdown-menu " role="menu" aria-labelledby="dropdownMenu1">
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ path('project_new') }}">Neues Projekt</a></li>
                 </ul>
+                {% if app.user.username is defined %}
+                <a class="btn btn-warning" href="{{ path('training_logout') }}">
+                    {{  'Abmelden'|trans }}
+                </a>
+                {% endif %}
             </div>
             <div class="btn-group pull-right">
                 <a class="btn btn-primary" href="{{ path('ressource_index') }}">{{ 'Ressourcen'|trans }}</a>

@@ -1,0 +1,26 @@
+{% extends 'TrainingCoreBundle::template.html.twig' %}
+
+{% block title %}{{ 'Login'|trans }}{% endblock %}
+
+{% block content %}
+    <form action="{{ path('training_login_check') }}" method="post">
+        <div class="login-row">
+            <label class="login-label">
+                <span class="icon-user"></span>
+            </label>
+            <input type="text" name="_username" value="" />
+        </div>
+        <div class="login-row">
+            <label class="login-label">
+                <span class="icon-key"></span>
+            </label>
+            <input type="password" name="_password" />
+        </div>
+        <div class="login-row">
+            <label class="login-label">&nbsp;</label>
+            <button type="submit" class="btn btn-primary">login</button>
+        </div>
+    </form>
+{% endblock %}
+
+

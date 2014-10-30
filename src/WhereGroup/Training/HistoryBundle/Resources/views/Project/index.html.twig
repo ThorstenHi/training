@@ -11,7 +11,7 @@
                 <th>Projektleiter</th>
                 <th></th>
                 <th></th>
-                <th></th>
+                {% if is_granted('ROLE_ADMIN') %}<th></th>{% endif %}
             </tr>
         </thead>
         <tbody>
@@ -30,11 +30,13 @@
                         delete
                     </a>
                 </td>
+                {% if is_granted('ROLE_ADMIN') %}
                 <td>
                     <a href="{{  path('history_show', {id: project.id}) }}">
                         history
                     </a>
                 </td>
+                {% endif %}
             </tr>
         {% endfor %}
         </tbody>

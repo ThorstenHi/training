@@ -5,6 +5,7 @@ namespace WhereGroup\Training\HistoryBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
  * Class HistoryController
@@ -20,6 +21,10 @@ class HistoryController extends Controller
      */
     public function showAction($id)
     {
+        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            throw new AccessDeniedException();
+        }
+
         return array(
             'rows' => $this->get('wheregroup.training.history')
                 ->getAll($id)

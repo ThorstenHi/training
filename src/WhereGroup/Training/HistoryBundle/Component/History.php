@@ -3,6 +3,7 @@
 namespace WhereGroup\Training\HistoryBundle\Component;
 
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\SecurityContextInterface;
 
 /**
  * Class History
@@ -13,14 +14,16 @@ use Doctrine\ORM\EntityManagerInterface;
 class History implements HistoryInterface
 {
     private $em;
+    private $sc;
     private $repo;
 
     /**
      * @param EntityManagerInterface $em
      */
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, SecurityContextInterface $sc)
     {
         $this->em = $em;
+        $this->sc = $sc;
         /** @var  \WhereGroup\Training\CoreBundle\Entity\Project */
         $this->repo = $this->em->getRepository('TrainingHistoryBundle:History');
     }
@@ -46,13 +49,16 @@ class History implements HistoryInterface
      */
     public function save($entity)
     {
+        $user = $this->sc->getToken()->getUser();
+
         $history = $this->newEntity();
         $history
             ->setProjectId($entity->getId())
             ->setName($entity->getName())
             ->setDescription($entity->getDescription())
             ->setLeader($entity->getLeader())
-            ->setDatetimez(new \DateTime());
+            ->setDatetimez(new \DateTime())
+            ->setUsername($user->getUsername());
 
         $this->em->persist($history);
         $this->em->flush();

@@ -6,6 +6,10 @@ _training_core_bundle_ressource:
     resource: "@TrainingCoreBundle/Controller/RessourceController.php"
     type:     annotation
 
+_training_core_bundle_security:
+    resource: "@TrainingCoreBundle/Controller/SecurityController.php"
+    type:     annotation
+
 _training_history_bundle:
     resource: "@TrainingHistoryBundle/Controller/HistoryController.php"
     type:     annotation
