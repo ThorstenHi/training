@@ -8,6 +8,13 @@
         <div class="header">
         <div class="btn-toolbar pull-right">
             <div class="btn-group pull-right">
+                {% if app.user.username is defined %}
+                <a class="btn btn-warning" href="{{ path('training_logout') }}">
+                    {{  'Abmelden'|trans }}
+                </a>
+                {% endif %}
+            </div>
+            <div class="btn-group pull-right">
                 <a class="btn btn-primary" href="{{ path('project_index') }}">{{ 'Projekte'|trans }}</a>
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                     <span class="caret"></span>
@@ -16,11 +23,6 @@
                 <ul class="dropdown-menu " role="menu" aria-labelledby="dropdownMenu1">
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ path('project_new') }}">Neues Projekt</a></li>
                 </ul>
-                {% if app.user.username is defined %}
-                <a class="btn btn-warning" href="{{ path('training_logout') }}">
-                    {{  'Abmelden'|trans }}
-                </a>
-                {% endif %}
             </div>
             <div class="btn-group pull-right">
                 <a class="btn btn-primary" href="{{ path('ressource_index') }}">{{ 'Ressourcen'|trans }}</a>
